@@ -1,8 +1,9 @@
 #!/bin/bash
 
 organize () {
-	ls "$2" | grep -v -e "README.md" -e "LICENSE" -e "organize_learning.sh" -e "exists.txt" > "$2/exists.txt"
-	printf "$(basename $2) \n" > "$2/README.md"
+	tmp_file=$(mktemp)
+	ls "$2" | grep -v -e "README.md" -e "LICENSE" -e "organize_learning.sh" -e "index.html" > $tmp_file
+	printf "# $(basename $2) \n" > "$2/README.md"
 	while read -r name
 	do 
 		if [ "$(file -b "$2/$name")" = "directory" ]; then
@@ -11,7 +12,7 @@ organize () {
 		else
 			printf "<a href='$1/$name' target='_blank' rel='next'>$name</a><br/>\n" >> "$2/README.md"
 		fi
-	done < "$2/exists.txt"
+	done < "$tmp_file"
 }
 organize "https://gabrielryanft.github.io/learning" "$(pwd)"
 
