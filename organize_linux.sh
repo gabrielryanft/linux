@@ -2,7 +2,7 @@
 
 organize () {
 	tmp_file=$(mktemp)
-	ls "$2" | grep -v -e "README.md" -e "LICENSE" -e "organize_learning.sh" -e "index.html" > $tmp_file
+	ls "$2" | grep -v -e "README.md" -e "LICENSE" -e "organize_linux.sh" -e "index.html" > $tmp_file
 	printf "# $(basename $2) \n" > "$2/README.md"
 	while read -r name
 	do 
@@ -14,5 +14,5 @@ organize () {
 		fi
 	done < "$tmp_file"
 }
-organize "https://gabrielryanft.github.io/learning" "$(pwd)"
+organize "https://gabrielryanft.github.io/linux" "$(pwd)"
 
