@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    margin: 20px;
+    display: inline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.4rem;
+}
+
+#h1_results {
+    margin: 20px;
+    align-self: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#cartas {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+#result {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.center {
+    text-align: center;
+}
+
+.p_results {
+    margin: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+}
